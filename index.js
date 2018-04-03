@@ -94,6 +94,7 @@ function Pixels (data, opts) {
 
   self._buffer = buffer
   self._draw = draw
+  self._squares = squares
   self._formatted = opts.formatted
   self.canvas = canvas
   self.frame = regl.frame
@@ -108,7 +109,7 @@ Pixels.prototype.update = function (data) {
 Pixels.prototype.partial_update = function (position, data) {
   var self = this
   var colors = self._formatted ? data : convert(data)
-  self._draw(self.position, self._buffer.color(colors))
+  self._squares(self.position, colors);
 }
 
 module.exports = Pixels
