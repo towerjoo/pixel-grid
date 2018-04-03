@@ -105,4 +105,10 @@ Pixels.prototype.update = function (data) {
   self._draw(self._buffer.position, self._buffer.color(colors))
 }
 
+Pixels.prototype.partial_update = function (position, data) {
+  var self = this
+  var colors = self._formatted ? data : convert(data)
+  self._draw(self.position, self._buffer.color(colors))
+}
+
 module.exports = Pixels
